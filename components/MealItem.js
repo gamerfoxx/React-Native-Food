@@ -11,18 +11,22 @@ import { MEALS } from '../data/dummy-data';
 function MealItem({ title, imageUrl, duration, complexity, affordability }) {
 	return (
 		<View style={styles.mealItem}>
-			<Pressable>
-				<View>
-					<Image
-						style={styles.image}
-						source={{ uri: imageUrl }}
-					/>
-					<Text style={styles.title}>{title}</Text>
-				</View>
-				<View style={styles.details}>
-					<Text style={styles.detailItem}>{duration} M</Text>
-					<Text style={styles.detailItem}>{complexity.toUpperCase()}</Text>
-					<Text style={styles.detailItem}>{affordability.toUpperCase()}</Text>
+			<Pressable
+				style={({ pressed }) => (pressed ? styles.pressed : null)}
+				android_ripple={{ color: '#aaa' }}>
+				<View style={styles.innerContainer}>
+					<View>
+						<Image
+							style={styles.image}
+							source={{ uri: imageUrl }}
+						/>
+						<Text style={styles.title}>{title}</Text>
+					</View>
+					<View style={styles.details}>
+						<Text style={styles.detailItem}>{duration} M</Text>
+						<Text style={styles.detailItem}>{complexity.toUpperCase()}</Text>
+						<Text style={styles.detailItem}>{affordability.toUpperCase()}</Text>
+					</View>
 				</View>
 			</Pressable>
 		</View>
@@ -63,5 +67,12 @@ const styles = StyleSheet.create({
 	detailItem: {
 		marginHorizontal: 4,
 		fontSize: 12,
+	},
+	innerContainer: {
+		borderRadius: 8,
+		overflow: 'hidden',
+	},
+	pressed: {
+		opacity: 0.5,
 	},
 });

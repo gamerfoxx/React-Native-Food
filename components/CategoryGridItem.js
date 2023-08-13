@@ -5,7 +5,10 @@ function CategoryGridItem({ title, color, onPress }) {
 		<View style={styles.gridItem}>
 			<Pressable
 				onPress={onPress}
-				style={(pressed) => [styles.button, pressed ? styles.pressed : null]}
+				style={({ pressed }) => [
+					styles.button,
+					pressed ? styles.pressed : null,
+				]}
 				android_ripple={{ color: '#aaa' }}>
 				<View style={[styles.innerContainer, { backgroundColor: color }]}>
 					<Text style={styles.title}>{title}</Text>
