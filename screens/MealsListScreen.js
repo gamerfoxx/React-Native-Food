@@ -11,7 +11,12 @@ function MealsListScreen({ route }) {
 	});
 
 	function renderMealItem(itemData) {
-		return <MealItem title={itemData.item.title} />;
+		return (
+			<MealItem
+				title={itemData.item.title}
+				imageUrl={itemData.item.imageUrl}
+			/>
+		);
 	}
 
 	return (
@@ -21,7 +26,6 @@ function MealsListScreen({ route }) {
 				data={displayedMeals}
 				keyExtractor={(item) => item.id}
 				renderItem={renderMealItem}
-				numColumns={2}
 			/>
 		</View>
 	);

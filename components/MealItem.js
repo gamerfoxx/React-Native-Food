@@ -1,10 +1,18 @@
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Pressable, StyleSheet, Image } from 'react-native';
 import { MEALS } from '../data/dummy-data';
 
-function MealItem({ title }) {
+function MealItem({ title, imageUrl }) {
 	return (
-		<View style={styles.container}>
-			<Text>{title}</Text>
+		<View>
+			<Pressable>
+				<View>
+					<Image
+						style={styles.image}
+						source={{ uri: imageUrl }}
+					/>
+					<Text style={styles.title}>{title}</Text>
+				</View>
+			</Pressable>
 		</View>
 	);
 }
@@ -12,8 +20,13 @@ function MealItem({ title }) {
 export default MealItem;
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		padding: 16,
+	image: {
+		width: '100%',
+		height: 200,
+	},
+	title: {
+		fontWeight: 'bold',
+		textAlign: 'center',
+		fontSize: 16,
 	},
 });
