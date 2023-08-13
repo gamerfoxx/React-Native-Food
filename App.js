@@ -26,5 +26,6 @@ export default function App() {
 		</>
 	);
 }
+//top most Stack.Screen will always be rendered first
 
 const styles = StyleSheet.create({});
