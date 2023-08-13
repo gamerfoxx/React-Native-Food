@@ -1,9 +1,10 @@
 import { Text, View, Pressable, StyleSheet, Platform } from 'react-native';
 
-function CategoryGridItem({ title, color }) {
+function CategoryGridItem({ title, color, onPress }) {
 	return (
 		<View style={styles.gridItem}>
 			<Pressable
+				onPress={onPress}
 				style={(pressed) => [styles.button, pressed ? styles.pressed : null]}
 				android_ripple={{ color: '#aaa' }}>
 				<View style={[styles.innerContainer, { backgroundColor: color }]}>
