@@ -1,10 +1,11 @@
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { MEALS } from '../data/dummy-data';
 
-function MealsListScreen() {
+function MealsListScreen({ route }) {
+	const categoryId = route.params.categoryId;
 	return (
 		<View style={styles.container}>
-			<Text> Meals List</Text>
+			<Text> Meals List -- {categoryId}</Text>
 		</View>
 	);
 }
