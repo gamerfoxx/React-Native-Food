@@ -17,6 +17,7 @@ function FavouritesScreen() {
 			</View>
 		);
 	}
+	console.log(favMeals);
 	return <MealList items={favMeals} />;
 }
 
